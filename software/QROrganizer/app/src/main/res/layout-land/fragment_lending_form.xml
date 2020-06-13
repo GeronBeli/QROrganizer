@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="lendingFormViewModel"
+            type="de.wuebeli.qrorganizer.screens.lendingform.viewmodel.LendingFormViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".screens.qrcreate.QrCreateFragment">
+
+            <TextView
+                android:id="@+id/text_articleId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Text"
+                android:text="@{lendingFormViewModel.articleId}"/>
+
+            <EditText
+                android:id="@+id/editText_LendingWho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/text_name_who"
+                android:inputType="textPersonName"
+                android:text="@={lendingFormViewModel.lendingWho}"
+                android:maxLength="30"
+                />
+
+            <EditText
+                android:id="@+id/editText_LendingAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/text_amount"
+                android:inputType="number"
+                android:text="@={lendingFormViewModel.lendingAmount}"
+                android:maxLength="9"
+                />
+
+            <EditText
+                android:id="@+id/editText_LendingComment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/text_comments"
+                android:inputType="textMultiLine"
+                android:lines="2"
+                android:gravity="top|start"
+                android:maxLength="100"
+                android:scrollHorizontally="true"
+                android:text="@={lendingFormViewModel.lendingComment}"
+                android:textAlignment="textStart" />
+
+            <CheckBox
+                android:id="@+id/checkBox_IsWearPart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_wide"
+                android:checked="false"
+                android:text="@string/text_wear_part" />
+
+        </LinearLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_LendingFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/margin_wide"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="clip_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:maxImageSize="@dimen/icon_image_size"
+            app:srcCompat="@drawable/ic_send" />
+
+        <DatePicker
+            android:id="@+id/datePicker_Lending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
+            app:layout_constraintBottom_toTopOf="@+id/button_LendingFinish"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

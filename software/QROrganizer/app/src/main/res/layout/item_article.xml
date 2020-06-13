@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="de.wuebeli.qrorganizer.model.ArticleMaster" />
+
+        <variable
+            name="listener"
+            type="de.wuebeli.qrorganizer.util.ArticleClickListener" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{listener::onArticleClicked}"
+        android:padding="@dimen/padding_wide">
+
+        <TextView
+            android:id="@+id/text_article_name"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{article.articleName}"
+            tools:text="articleName"
+            />
+
+        <TextView
+            android:id="@+id/text_article_id"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{article.articleId}"
+            tools:text="articleId"/>
+
+        <TextView
+            android:id="@+id/text_article_current_stock_amount"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/format_stock_amount(article.articleCurrentStockAmount)}"
+            tools:text="articleCurrentStockAmount"/>
+
+        <TextView
+            android:id="@+id/text_article_lending_amount"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/format_lending_amount(article.articleLendingAmount)}"
+            tools:text="articleLendingAmount"/>
+
+        <TextView
+            android:id="@+id/text_article_storage_location"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{article.articleStorageLocation.toString()}"
+            tools:text="articleStorageLocation"/>
+
+        <TextView
+            android:id="@+id/text_article_price"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/format_article_price(article.articlePrice)}"
+            tools:text="articleLendingAmount"/>
+
+        <TextView
+            android:id="@+id/text_article_where_ordered"
+            style="@style/Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/format_article_where_ordered(article.articleWhereOrdered)}"
+            tools:text="articleLendingAmount"/>
+
+    </LinearLayout>
+
+</layout>
+
